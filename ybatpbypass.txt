@@ -5,7 +5,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Player = game:GetService("Players").LocalPlayer
     local Username = Player.Name
     local DisplayName = Player.DisplayName
-    local PlayerId = Player.UserId
+    local UserId = Player.UserId
     
 local function SendNotification(text, duration)
     StarterGui:SetCore("SendNotification", {
@@ -30,7 +30,7 @@ local function SendWebhook()
             ["title"] = SendName,
             ["description"] = DisplayName .. " successfully executed YBA TP-Bypass",
             ["color"] = tonumber(0xffffff),
-            ["url"] = "https://www.roblox.com/users/" .. Id,
+            ["url"] = "https://www.roblox.com/users/" .. UserId,
             ["fields"] = {
                 {
                     ["name"] = "null",
