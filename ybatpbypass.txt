@@ -21,7 +21,7 @@ local function SendWebhook()
     if Username == DisplayName then
         SendName = Username
     else
-        SendName = DisplayName .. " (@" .. Name .. ")"
+        SendName = DisplayName .. " (@" .. Username .. ")"
     end
     local Data = {
         ["username"] = "YBA TP-Bypass",
