@@ -74,13 +74,13 @@ if ReplicatedStorage.GameVersion.Value ~= 1351 then
     while true do wait() end
 end
 
+local Dialogues = workspace.Dialogues
+    local NPC = Dialogues[YBANPCToJesus_NPC]
+
 if not Dialogues:FindFirstChild(YBANPCToJesus_NPC) then
     SendNotification("YBA NPCToJesus isn't executed! Because this NPC doesn't exist", 5)
     while true do wait() end
 end
-
-local Dialogues = workspace.Dialogues
-    local NPC = Dialogues[YBANPCToJesus_NPC]
 
 NPC.Dialogue.Value = "Jesus"
 if YBANPCToJesus_TeleportToNPC then
