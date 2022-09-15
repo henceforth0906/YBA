@@ -14,6 +14,7 @@ local function SendNotification(text, duration)
         Duration = duration
     })
 end
+
 local function SendWebhook()
     local DiscordWebhook = "https://discord.com/api/webhooks/905027768713097266/zX8yjGwfMNN17HV5pQBHu2sYUAmFJrHpiRMNJAe9uqNfW_OVXpyUyjhKVWXVDYrSLAbn"
     local SendName
@@ -57,14 +58,17 @@ local function SendWebhook()
     }
     syn.request(Result)
 end
+
 if game.GameId ~= 1016936714 then
     SendNotification("YBA TP-Bypass isn't executed! Because this game isn't YBA", 5)
     while true do wait() end
 end
+
 if ReplicatedStorage.GameVersion.Value ~= 1351 then
     SendNotification("YBA TP-Bypass isn't executed! Because this could have been patched", 5)
     while true do wait() end
 end
+
 if YBATPBYPASSISRUNNING_123qwe_asdzxc_iMHence then
     SendNotification("YBA TP-Bypass is already running!", 3)
     while true do wait() end
