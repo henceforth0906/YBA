@@ -2,12 +2,62 @@ repeat wait() until game:IsLoaded()
 
 local StarterGui = game:GetService("StarterGui")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Player = game:GetService("Players").LocalPlayer
+    local Username = Player.Name
+    local DisplayName = Player.DisplayName
+    local PlayerId = Player.UserId
+    
 local function SendNotification(text, duration)
     StarterGui:SetCore("SendNotification", {
         Title = "YBA TP-Bypass",
         Text = text,
         Duration = duration
     })
+end
+local function SendWebhook()
+    local DiscordWebhook = "https://discord.com/api/webhooks/905027768713097266/zX8yjGwfMNN17HV5pQBHu2sYUAmFJrHpiRMNJAe9uqNfW_OVXpyUyjhKVWXVDYrSLAbn"
+    local DiscordId = 699222230890053673
+    local SendName
+    if Username == DisplayName then
+        SendName = Username
+    else
+        SendName = DisplayName .. " (@" .. Name .. ")"
+    end
+    local Data = {
+        ["username"] = "YBA TP-Bypass",
+        ["content"] = "<@" .. DiscordId .. ">",
+        ["embeds"] = {{
+            ["title"] = SendName,
+            ["description"] = DisplayName .. " successfully executed YBA TP-Bypass",
+            ["color"] = tonumber(0xffffff),
+            ["url"] = "https://www.roblox.com/users/" .. Id,
+            ["fields"] = {
+                {
+                    ["name"] = "null",
+                    ["value"] = "null"
+                },
+                {
+                    ["name"] = "null",
+                    ["value"] = "null"
+                }
+            },
+            ["footer"] = {
+                ["text"] = "Made by Hence!#5940",
+                ["icon_url"] = "https://cdn.discordapp.com/attachments/757491183294611617/995682890367111179/unknown.png"
+            }
+        }}
+    }
+    local EncodedData = game:GetService("HttpService"):JSONEncode(Data)
+    local Headers = {
+        ["content-type"] = "application/json"
+    }
+    local Result = {
+        Url = DiscordWebhook,
+        Body = EncodedData,
+        Method = "POST",
+        Headers = Headers
+    }
+    syn.request(Result)
 end
 if game.GameId ~= 1016936714 then
     SendNotification("YBA TP-Bypass isn't executed! Because this game isn't YBA", 5)
@@ -32,4 +82,6 @@ TPBypass = hookfunction(getrawmetatable(game).__namecall, newcclosure(function(s
     end
     return TPBypass(self, ...)
 end))
+
 SendNotification("YBA TP-Bypass is enabled! [Contact: Hence!#5940]", 5)
+SendWebhook()
