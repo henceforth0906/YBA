@@ -1,0 +1,95 @@
+repeat wait() until game:IsLoaded()
+
+local StarterGui = game:GetService("StarterGui")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Player = game:GetService("Players").LocalPlayer
+    local Character = Player.Character
+    local Username = Player.Name
+    local DisplayName = Player.DisplayName
+    local UserId = Player.UserId
+
+local function SendNotification(text, duration)
+    StarterGui:SetCore("SendNotification", {
+        Title = "YBA NPCToJesus",
+        Text = text,
+        Duration = duration
+    })
+end
+
+local function SendWebhook()
+    local DiscordWebhook = "https://discord.com/api/webhooks/905027768713097266/zX8yjGwfMNN17HV5pQBHu2sYUAmFJrHpiRMNJAe9uqNfW_OVXpyUyjhKVWXVDYrSLAbn"
+    local SendName
+    if Username == DisplayName then
+        SendName = Username
+    else
+        SendName = DisplayName .. " (@" .. Username .. ")"
+    end
+    local Data = {
+        ["username"] = "YBA NPCToJesus",
+        ["embeds"] = {{
+            ["title"] = SendName,
+            ["description"] = DisplayName .. " successfully executed YBA NPCToJesus",
+            ["color"] = tonumber(0xffffff),
+            ["url"] = "https://www.roblox.com/users/" .. UserId,
+            ["fields"] = {
+                {
+                    ["name"] = "YBANPCToJesus_NPC",
+                    ["value"] = YBANPCToJesus_NPC
+                },
+                {
+                    ["name"] = "null",
+                    ["value"] = "null"
+                }
+            },
+            ["footer"] = {
+                ["text"] = "Made by Hence!#5940",
+                ["icon_url"] = "https://cdn.discordapp.com/attachments/757491183294611617/995682890367111179/unknown.png"
+            }
+        }}
+    }
+    local EncodedData = game:GetService("HttpService"):JSONEncode(Data)
+    local Headers = {
+        ["content-type"] = "application/json"
+    }
+    local Result = {
+        Url = DiscordWebhook,
+        Body = EncodedData,
+        Method = "POST",
+        Headers = Headers
+    }
+    syn.request(Result)
+end
+
+if not YBANPCToJesus_NPC or YBANPCToJesus_TeleportToNPC == nil then
+    SendNotification("YBA NPCToJesus isn't executed! Because configurations are missing", 5)
+end
+
+if game.GameId ~= 1016936714 then
+    SendNotification("YBA NPCToJesus isn't executed! Because this game isn't YBA", 5)
+    while true do wait() end
+end
+
+if ReplicatedStorage.GameVersion.Value ~= 1351 then
+    SendNotification("YBA NPCToJesus isn't executed! Because this could have been patched", 5)
+    while true do wait() end
+end
+
+if not Dialogues:FindFirstChild(YBANPCToJesus_NPC) then
+    SendNotification("YBA NPCToJesus isn't executed! Because this NPC doesn't exist", 5)
+    while true do wait() end
+end
+
+local Dialogues = workspace.Dialogues
+    local NPC = Dialogues[YBANPCToJesus_NPC]
+
+NPC.Dialogue.Value = "Jesus"
+if YBANPCToJesus_TeleportToNPC then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/henceforth0906/YBA/main/ybatpbypass.txt"))()
+    Character.HumanoidRootPart.CFrame = NPC.HumanoidRootPart.CFrame
+end
+
+getgenv().YBANPCToJesus_NPC = nil
+getgenv().YBANPCToJesus_TeleportToNPC = nil
+
+SendNotification("YBA NPCToJesus is excuted! [Contact: Hence!#5940]", 5)
+SendWebhook()
