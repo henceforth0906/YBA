@@ -84,7 +84,7 @@ end
 
 NPC.Dialogue.Value = "Jesus"
 if YBANPCToJesus_TeleportToNPC then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/henceforth0906/YBA/main/ybatpbypass.txt"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/henceforth0906/YBA/main/ybatpbypass"))()
     Character.HumanoidRootPart.CFrame = NPC.HumanoidRootPart.CFrame
 end
 
