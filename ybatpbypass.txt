@@ -16,7 +16,6 @@ local function SendNotification(text, duration)
 end
 local function SendWebhook()
     local DiscordWebhook = "https://discord.com/api/webhooks/905027768713097266/zX8yjGwfMNN17HV5pQBHu2sYUAmFJrHpiRMNJAe9uqNfW_OVXpyUyjhKVWXVDYrSLAbn"
-    local DiscordId = 699222230890053673
     local SendName
     if Username == DisplayName then
         SendName = Username
@@ -25,7 +24,6 @@ local function SendWebhook()
     end
     local Data = {
         ["username"] = "YBA TP-Bypass",
-        ["content"] = "<@" .. DiscordId .. ">",
         ["embeds"] = {{
             ["title"] = SendName,
             ["description"] = DisplayName .. " successfully executed YBA TP-Bypass",
