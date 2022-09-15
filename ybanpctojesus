@@ -62,15 +62,22 @@ end
 
 if not YBANPCToJesus_NPC or YBANPCToJesus_TeleportToNPC == nil then
     SendNotification("YBA NPCToJesus isn't executed! Because configurations are missing", 5)
+    getgenv().YBANPCToJesus_NPC = nil
+    getgenv().YBANPCToJesus_TeleportToNPC = nil
+    while true do wait() end
 end
 
 if game.GameId ~= 1016936714 then
     SendNotification("YBA NPCToJesus isn't executed! Because this game isn't YBA", 5)
+    getgenv().YBANPCToJesus_NPC = nil
+    getgenv().YBANPCToJesus_TeleportToNPC = nil
     while true do wait() end
 end
 
 if ReplicatedStorage.GameVersion.Value ~= 1351 then
     SendNotification("YBA NPCToJesus isn't executed! Because this could have been patched", 5)
+    getgenv().YBANPCToJesus_NPC = nil
+    getgenv().YBANPCToJesus_TeleportToNPC = nil
     while true do wait() end
 end
 
@@ -79,6 +86,8 @@ local Dialogues = workspace.Dialogues
 
 if not Dialogues:FindFirstChild(YBANPCToJesus_NPC) then
     SendNotification("YBA NPCToJesus isn't executed! Because this NPC doesn't exist", 5)
+    getgenv().YBANPCToJesus_NPC = nil
+    getgenv().YBANPCToJesus_TeleportToNPC = nil
     while true do wait() end
 end
 
