@@ -16,7 +16,7 @@ local function SendNotification(text, duration)
     })
 end
 
-local function SendWebhook()
+local function SendWebhook(npc)
     local DiscordWebhook = "https://discord.com/api/webhooks/905027768713097266/zX8yjGwfMNN17HV5pQBHu2sYUAmFJrHpiRMNJAe9uqNfW_OVXpyUyjhKVWXVDYrSLAbn"
     local SendName
     if Username == DisplayName then
@@ -33,8 +33,8 @@ local function SendWebhook()
             ["url"] = "https://www.roblox.com/users/" .. UserId,
             ["fields"] = {
                 {
-                    ["name"] = "YBANPCToJesus_NPC",
-                    ["value"] = YBANPCToJesus_NPC
+                    ["name"] = "NPC",
+                    ["value"] = npc
                 },
                 {
                     ["name"] = "null",
@@ -95,8 +95,8 @@ if YBANPCToJesus_TeleportToNPC then
     Character.HumanoidRootPart.CFrame = NPC.HumanoidRootPart.CFrame
 end
 
+SendNotification("YBA NPCToJesus is excuted! [Contact: Hence!#5940]", 5)
+SendWebhook(YBANPCToJesus_NPC)
+
 getgenv().YBANPCToJesus_NPC = nil
 getgenv().YBANPCToJesus_TeleportToNPC = nil
-
-SendNotification("YBA NPCToJesus is excuted! [Contact: Hence!#5940]", 5)
-SendWebhook()
