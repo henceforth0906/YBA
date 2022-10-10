@@ -64,7 +64,7 @@ if game.GameId ~= 1016936714 then
     while true do wait() end
 end
 
-if ReplicatedStorage.GameVersion.Value ~= 1351 then
+if ReplicatedStorage.GameVersion.Value ~= 136 then
     SendNotification("YBA TP-Bypass isn't executed! Because this could have been patched", 5)
     while true do wait() end
 end
