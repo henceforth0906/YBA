@@ -1,6 +1,6 @@
 local CheckedGameVersion = 136
 
-repeat wait() until game:IsLoaded() -- Start of codes.
+repeat wait() until game:IsLoaded()
 
 local StarterGui = game:GetService("StarterGui")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
