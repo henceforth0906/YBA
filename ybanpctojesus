@@ -1,4 +1,6 @@
-repeat wait() until game:IsLoaded()
+local CheckedGameVersion = 136
+
+repeat wait() until game:IsLoaded() -- Start of codes.
 
 local StarterGui = game:GetService("StarterGui")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -74,7 +76,7 @@ if game.GameId ~= 1016936714 then
     while true do wait() end
 end
 
-if ReplicatedStorage.GameVersion.Value ~= 136 then
+if ReplicatedStorage.GameVersion.Value ~= CheckedGameVersion then
     SendNotification("YBA NPCToJesus isn't executed! Because this could have been patched", 5)
     getgenv().YBANPCToJesus_NPC = nil
     getgenv().YBANPCToJesus_TeleportToNPC = nil
