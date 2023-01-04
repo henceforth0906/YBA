@@ -1,4 +1,4 @@
-local CheckedGameVersion = 1394
+local CheckedGameVersion = 1399.1
 
 repeat wait() until game:IsLoaded()
 
